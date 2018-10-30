@@ -1,17 +1,31 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-
     <title>Tooltip</title>
+    <style>
+        body {
+            text-align: center;
+            color: red;
+        }
+        button {
+            color: blue;
+            border: blue 1px solid;
+            padding: 10px 15px;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Botón sin tooltip</h1>
 
-    <hc-tooltip content="This is tooltip content"><button>Hola!</button></hc-tooltip>
+    <button>Guardar</button>
 
+    <h1>Botón con tooltip</h1>
+    <hc-tooltip content="Acción sencundaria" button-text="Ir!">
+        <button>Guardar</button>
+    </hc-tooltip>
     <script src="tooltip.js"></script>
 </body>
 
