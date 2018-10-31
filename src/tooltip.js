@@ -20,6 +20,11 @@ class Tooltip extends HTMLElement {
                 padding: 10px;
                 background: #eee;
             }
+            button {
+                color: green;
+                border: green 1px solid;
+                padding: 10px 15px;
+            }
         `;
         shadowRoot.appendChild(style);
 
@@ -39,6 +44,9 @@ class Tooltip extends HTMLElement {
         const button = document.createElement('button');
         button.innerText = tooltipButtonContent
         button.style.color = 'inherit';
+        button.addEventListener('click', () => {
+            this.dispatchEvent(new CustomEvent('onClickOnButton'))
+        });
         divEl.appendChild(button);
 
         divEl.style.display = 'none';
