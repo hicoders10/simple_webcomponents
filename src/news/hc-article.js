@@ -17,7 +17,7 @@
 
   /**
  * Estilos
- * 1 - Creamos un elemento style y añadimos contenido
+ * 1 - Creamos un elemento style, añadimos contenido y adjuntamos al DOM
  */
 
 class HcArticle extends HTMLElement {
@@ -25,6 +25,24 @@ class HcArticle extends HTMLElement {
         super();
 
         const shadow = this.attachShadow({mode: 'open'});
+
+        const style = document.createElement('style');
+        style.innerText = `
+            :host {
+                all: initial;
+            }
+            article {
+                padding: 20px;
+                background: #fff;
+                border: 2px #333 solid;
+                border-radius: 5px;
+            }
+            button {
+                display: block;
+                padding: 10px 20px;
+                border: 1px solid red;
+            }
+        `;
 
         // Create elements
         const article = document.createElement('article');
@@ -40,7 +58,7 @@ class HcArticle extends HTMLElement {
         btn.innerText = 'Me gusta';
 
         // Append elements
-        article.append(h2, p, img, btn);
+        article.append(style, h2, p, img, btn);
         shadow.append(article);
     }
 }
