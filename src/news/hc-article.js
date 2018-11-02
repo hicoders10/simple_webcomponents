@@ -3,6 +3,7 @@
  * 2 - Declarar custom element
  * 3 - Importar el fichero js en html y insertar el componente
  * 4 - Insertar constructor y comenzar a crear elementos necesarios
+ * 5 - Modificar los elementos para que cumplan función
  */
 
 class HcArticle extends HTMLElement {
