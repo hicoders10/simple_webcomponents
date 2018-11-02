@@ -1,4 +1,4 @@
-class Tooltip extends HTMLElement {
+class TooltipBtn extends HTMLElement {
     constructor() {
 
         // Llamamos al constructor de la clase padre (HTMLElement)
@@ -29,20 +29,20 @@ class Tooltip extends HTMLElement {
         shadowRoot.appendChild(style);
 
         // Obtenemos atributos del componente
-        const tooltipContent = this.getAttribute('content');
-        const tooltipButtonContent = this.getAttribute('button-text');
+        const tooltipDescription = this.getAttribute('description');
+        const tooltipActionText = this.getAttribute('action-text');
 
         // Creamos un elemento div, le asignamos estilo y texto
         const divEl = document.createElement('div');
 
         // Creamos un elemento span, le ponemos texto y lo adjuntamos al div
         const span = document.createElement('span');
-        span.innerText = tooltipContent
+        span.innerText = tooltipDescription
         divEl.appendChild(span);
 
         // Creamos un elemento button, le ponemos texto y lo adjuntamos al div
         const button = document.createElement('button');
-        button.innerText = tooltipButtonContent
+        button.innerText = tooltipActionText
         button.style.color = 'inherit';
         button.addEventListener('click', () => {
             this.dispatchEvent(new CustomEvent('onClickOnButton'))
@@ -70,4 +70,4 @@ class Tooltip extends HTMLElement {
 }
 
 // Definimos el custom element con nuestra clase
-window.customElements.define('hc-tooltip', Tooltip);
+window.customElements.define('hc-tooltip-btn', TooltipBtn);

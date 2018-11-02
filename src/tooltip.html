@@ -23,11 +23,12 @@
     <button>Guardar</button>
 
     <h1>Botón con tooltip</h1>
-    <hc-tooltip id="HCTOOLTIP" content="Acción sencundaria" button-text="Ir!">
-        <button>Guardar</button>
-    </hc-tooltip>
 
-    <script src="tooltip.js"></script>
+    <hc-tooltip-btn id="HCTOOLTIP" description="Acción sencundaria" action-text="Eliminar">
+        <button>Guardar</button>
+    </hc-tooltip-btn>
+
+    <script src="tooltip-btn.js"></script>
 
     <script type="text/javascript">
         document.getElementById("HCTOOLTIP").addEventListener("onClickOnButton", () => {
