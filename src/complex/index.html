@@ -24,14 +24,14 @@
 
     <h1>Botón con tooltip</h1>
 
-    <hc-tooltip-btn id="HCTOOLTIP" description="Acción sencundaria" action-text="Eliminar">
+    <hc-tooltip-btn id="tooltip" description="Acción sencundaria" action-text="Eliminar">
         <button>Guardar</button>
     </hc-tooltip-btn>
 
     <script src="tooltip-btn.js"></script>
 
     <script type="text/javascript">
-        document.getElementById("HCTOOLTIP").addEventListener("onClickOnButton", () => {
+        document.getElementById("tooltip").addEventListener("onClickOnButton", () => {
             console.log("Fired from consumer. Clicked on tooltip button");
         });
     </script>
