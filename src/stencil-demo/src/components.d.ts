@@ -22,15 +22,27 @@ export namespace Components {
     'last'?: string;
     'middle'?: string;
   }
+
+  interface HcNumberSelector {
+    'max': number;
+    'min': number;
+  }
+  interface HcNumberSelectorAttributes extends StencilHTMLAttributes {
+    'max'?: number;
+    'min'?: number;
+    'onChanged'?: (event: CustomEvent) => void;
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
     'MyComponent': Components.MyComponent;
+    'HcNumberSelector': Components.HcNumberSelector;
   }
 
   interface StencilIntrinsicElements {
     'my-component': Components.MyComponentAttributes;
+    'hc-number-selector': Components.HcNumberSelectorAttributes;
   }
 
 
@@ -40,12 +52,20 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLHcNumberSelectorElement extends Components.HcNumberSelector, HTMLStencilElement {}
+  var HTMLHcNumberSelectorElement: {
+    prototype: HTMLHcNumberSelectorElement;
+    new (): HTMLHcNumberSelectorElement;
+  };
+
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement
+    'hc-number-selector': HTMLHcNumberSelectorElement
   }
 
   interface ElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'hc-number-selector': HTMLHcNumberSelectorElement;
   }
 
 
