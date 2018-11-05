@@ -1,0 +1,32 @@
+<template id="element">
+    <style>
+        button {
+            color: red;
+        }
+    </style>
+    <button>
+        
+    </button>
+    <script type="text/javascript">
+        class MyButton extends HTMLElement {
+            constructor() {
+                super();
+
+                const template = this.getElementById('element').content;
+                templateInstance = template.cloneNode(true);
+
+                this.addEventListener('mouseover', () => this.dispatchEvent(new CustomEvent('yeeh')))
+            }
+
+            connectedCallback() {
+                console.log('connected!');
+            }
+
+            disconnectedCallback() {
+                console.log('disconnected!');
+            }
+        }
+
+        window.customElements.define('my-button', MyButton);
+    </script>
+</template>
