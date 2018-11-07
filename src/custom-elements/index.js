@@ -3,4 +3,6 @@
     Basic elements create
     Get props and dispatch events
     Lifecycle callbacks
+    Shadow DOM
+    Clear inheritcance
 */
