@@ -5,11 +5,13 @@ class MyButton extends HTMLElement {
 
         const templateContent = document.getElementById('element').content;
 
+        const shadow = this.attachShadow({mode: 'open'});
+
         const clone = document.importNode(templateContent, true);
 
         clone.querySelectorAll('button')[0].innerText = this.getAttribute('text');
 
-        this.append(clone);
+        shadow.append(clone);
 
         /*this.innerText = this.getAttribute('text');
         const div = document.createElement('div');
