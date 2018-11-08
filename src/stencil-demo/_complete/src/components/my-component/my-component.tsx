@@ -19,6 +19,6 @@ export class MyComponent {
   }
 
   render() {
-    return (<hc-number-selector onChanged={(event) => console.log(event.detail)} min={0} max={10}></hc-number-selector>)
+    return <div>Hello, World! I'm {this.format()}</div>;
   }
 }

@@ -12,6 +12,14 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface HcSearch {
+    'placeholder': string;
+  }
+  interface HcSearchAttributes extends StencilHTMLAttributes {
+    'onChanged'?: (event: CustomEvent) => void;
+    'placeholder'?: string;
+  }
+
   interface MyComponent {
     'first': string;
     'last': string;
@@ -22,29 +30,25 @@ export namespace Components {
     'last'?: string;
     'middle'?: string;
   }
-
-  interface HcNumberSelector {
-    'max': number;
-    'min': number;
-  }
-  interface HcNumberSelectorAttributes extends StencilHTMLAttributes {
-    'max'?: number;
-    'min'?: number;
-    'onChanged'?: (event: CustomEvent) => void;
-  }
 }
 
 declare global {
   interface StencilElementInterfaces {
+    'HcSearch': Components.HcSearch;
     'MyComponent': Components.MyComponent;
-    'HcNumberSelector': Components.HcNumberSelector;
   }
 
   interface StencilIntrinsicElements {
+    'hc-search': Components.HcSearchAttributes;
     'my-component': Components.MyComponentAttributes;
-    'hc-number-selector': Components.HcNumberSelectorAttributes;
   }
 
+
+  interface HTMLHcSearchElement extends Components.HcSearch, HTMLStencilElement {}
+  var HTMLHcSearchElement: {
+    prototype: HTMLHcSearchElement;
+    new (): HTMLHcSearchElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -52,20 +56,14 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
-  interface HTMLHcNumberSelectorElement extends Components.HcNumberSelector, HTMLStencilElement {}
-  var HTMLHcNumberSelectorElement: {
-    prototype: HTMLHcNumberSelectorElement;
-    new (): HTMLHcNumberSelectorElement;
-  };
-
   interface HTMLElementTagNameMap {
+    'hc-search': HTMLHcSearchElement
     'my-component': HTMLMyComponentElement
-    'hc-number-selector': HTMLHcNumberSelectorElement
   }
 
   interface ElementTagNameMap {
+    'hc-search': HTMLHcSearchElement;
     'my-component': HTMLMyComponentElement;
-    'hc-number-selector': HTMLHcNumberSelectorElement;
   }
 
 
